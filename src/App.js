@@ -9,7 +9,7 @@ function App() {
 	const [page, setPage] = useState("Login");
 
 	const renderPage = (page) => {
-		return <Login></Login>;
+		return <Home></Home>;
 	};
 
 	return (
