@@ -77,6 +77,7 @@ const Home = () => {
 				Home
 			</h1>
 			<Search location={setLocation}></Search>
+
 			{city.name && <NewsList cityName={city.name} />}
 		</>
 	);
