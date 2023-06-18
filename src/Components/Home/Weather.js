@@ -10,9 +10,12 @@ const Weather = ({ latitude, longitude }) => {
     const fetchWeather = async () => {
       try {
         const response = await axios.get(
-          `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m`
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_min,temperature_2m_max`
         );
-        setTemperature(response.data.hourly.temperature_2m);
+
+        const { temperature_2m_min, temperature_2m_max } = response.data.daily;
+
+        setTemperature({ min: temperature_2m_min, max: temperature_2m_max });
         setLoading(false);
       } catch (error) {
         setError("Failed to fetch weather data");
@@ -20,7 +23,9 @@ const Weather = ({ latitude, longitude }) => {
       }
     };
 
-    fetchWeather();
+    if (latitude && longitude) {
+      fetchWeather();
+    }
   }, [latitude, longitude]);
 
   if (loading) {
@@ -34,7 +39,12 @@ const Weather = ({ latitude, longitude }) => {
   return (
     <div>
       <h2>Weather</h2>
-      <p>Temperature: {temperature}°C</p>
+      {temperature && (
+        <>
+          <p>Min Temperature: {temperature.min}°C</p>
+          <p>Max Temperature: {temperature.max}°C</p>
+        </>
+      )}
     </div>
   );
 };
