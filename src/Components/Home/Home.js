@@ -55,11 +55,9 @@ const Home = () => {
 						break;
 					}
 				}
-
 				setCity({ address: address, lat: lat, long: long, name: cityName });
 			})
 			.catch((error) => {
-				// Handle the error
 				setFoundCity(false);
 				console.error(error);
 			});
