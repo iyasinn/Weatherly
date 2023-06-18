@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import Search from "./Search";
 import NewsList from "./NewsList";
+import Weather from "./Weather";
 
 async function fetchGeocode(placeId, apiKey) {
 	const url = `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${apiKey}`;
@@ -45,6 +46,9 @@ const Home = () => {
 				const address = rData.results[0].formatted_address;
 				const lat = rData.results[0].geometry.location.lat;
 				const long = rData.results[0].geometry.location.lng;
+
+				console.log("lat:", lat); // Add this
+  				console.log("lon:", long); // Add this
 				
 				const addressComponents = rData.results[0].address_components;
 				let cityName;
@@ -55,7 +59,8 @@ const Home = () => {
 						break;
 					}
 				}
-				setCity({ address: address, lat: lat, long: long, name: cityName });
+				setCity({ address: address, lat: lat, lon: long, name: cityName });
+
 			})
 			.catch((error) => {
 				setFoundCity(false);
@@ -69,6 +74,7 @@ const Home = () => {
 				Home
 			</h1>
 			<Search location={setLocation}></Search>
+			{city.lat && city.lon && city.name && <Weather lat={city.lat} lon={city.lon} cityName = {city.name} />}
 			{city.name && <NewsList cityName={city.name} />}
 
 		</>
