@@ -41,11 +41,14 @@ const Home = () => {
 				setFoundCity(true);
 
 				console.log("Data", rData);
-				console.log("Data location", rData.results[0].geometry.location);
+				console.log(
+					"Data location",
+					rData.results[0].geometry.location
+				);
 				const address = rData.results[0].formatted_address;
 				const lat = rData.results[0].geometry.location.lat;
 				const long = rData.results[0].geometry.location.lng;
-				
+
 				const addressComponents = rData.results[0].address_components;
 				let cityName;
 
@@ -55,7 +58,12 @@ const Home = () => {
 						break;
 					}
 				}
-				setCity({ address: address, lat: lat, long: long, name: cityName });
+				setCity({
+					address: address,
+					lat: lat,
+					long: long,
+					name: cityName,
+				});
 			})
 			.catch((error) => {
 				setFoundCity(false);
@@ -70,7 +78,6 @@ const Home = () => {
 			</h1>
 			<Search location={setLocation}></Search>
 			{city.name && <NewsList cityName={city.name} />}
-
 		</>
 	);
 };
