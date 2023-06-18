@@ -1,0 +1,18 @@
+.news-app{
+    width: 420px;
+    margin-left: 10px;
+    overflow-y: auto; 
+    height: 1000px;
+}
+
+.news-item {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.news-img {
+    width: 400px;
+}
