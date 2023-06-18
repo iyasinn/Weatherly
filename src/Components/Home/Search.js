@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import parse from "autosuggest-highlight/parse";
 import { debounce } from "@mui/material/utils";
 import { SettingsEthernet } from "@mui/icons-material";
-import { getWeather } from './Weather';
 
 
 
@@ -33,7 +32,7 @@ export default function Search(props) {
 	const [inputValue, setInputValue] = React.useState("");
 	const [options, setOptions] = React.useState([]);
 	const [geocode, setGeocode] = React.useState([]);
-	const [weatherData, setWeatherData] = React.useState(null);
+	
 	const loaded = React.useRef(false);
 
 	if (typeof window !== "undefined" && !loaded.current) {
@@ -92,14 +91,8 @@ export default function Search(props) {
 
 		if (value) {
 			props.location(value);
-			getWeather(value.geometry.location.lat(), value.geometry.location.lng())
-			  .then(data => {
-				setWeatherData(data);
-			  })
-			  .catch(error => {
-				console.error('Error retrieving weather:', error);
-			  });
-		  }
+			
+		}
 		  
 		return () => {
 			active = false;
@@ -186,19 +179,8 @@ export default function Search(props) {
 						</li>
 					);
 				}}
-				/>
-				{weatherData && (
-				  <div>
-					<Typography variant="body1">Weather:</Typography>
-					<ul>
-					  {weatherData.map((temperature, index) => (
-						<li key={index}>
-						  Temperature at {index} hour: {temperature}
-						</li>
-					  ))}
-					</ul>
-				  </div>
-				)}
+			/>
+				
 		</div>
 	);
 }
