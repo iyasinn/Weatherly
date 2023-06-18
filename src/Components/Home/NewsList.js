@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import NewsItem from './NewsItem';
+import "./NewsItem.css"
 
 
 const NEWS_API_KEY = "d78602ccc6c849b7900591b675cda0df";
@@ -20,7 +21,7 @@ const NewsList = ({ cityName }) => {
     }, [cityName])
 
     return (
-        <div>
+        <div className="news-app">
             {articles.map((article, index) =>{
                 return(
                     <NewsItem

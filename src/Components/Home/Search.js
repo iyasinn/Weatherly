@@ -102,7 +102,7 @@ export default function Search(props) {
 	// console.log({ value, inputValue, options });
 
 	return (
-		<div className="flex justify-center mt-5">
+		<div className="flex justify-center mt-5 mb-5">
 			<Autocomplete
 				id="google-map-demo"
 				sx={{ width: 300 }}
