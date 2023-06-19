@@ -77,8 +77,8 @@ const Home = () => {
 			<h1 className="text-center font-bold text-3xl text-sky-400">
 				Home
 			</h1>
-			<Search location={setLocation}></Search>
 			<div className="flex">
+				<Search location={setLocation}></Search>
 				{city && <NewsList cityName={city.name} />}
 				{city && <AirPollution lat={city.lat} lon={city.lon} />}
 			</div>
