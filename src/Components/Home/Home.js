@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import Search from "./Search";
 import NewsList from "./NewsList";
+import AirPollution from "./AirPollution"
 
 async function fetchGeocode(placeId, apiKey) {
 	const url = `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${apiKey}`;
@@ -61,7 +62,7 @@ const Home = () => {
 				setCity({
 					address: address,
 					lat: lat,
-					long: long,
+					lon: long,
 					name: cityName,
 				});
 			})
@@ -77,7 +78,10 @@ const Home = () => {
 				Home
 			</h1>
 			<Search location={setLocation}></Search>
-			{city.name && <NewsList cityName={city.name} />}
+			<div className="flex">
+				{city && <NewsList cityName={city.name} />}
+				{city && <AirPollution lat={city.lat} lon={city.lon} />}
+			</div>
 		</>
 	);
 };

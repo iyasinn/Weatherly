@@ -1,26 +1,48 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./AirPollution.css";
 
 const AirPollution_KEY = '50628e2cb3eaad072070ad14c6d05824'
-const AirPollution = ({ lat, lon, cityName }) => {
+const AirPollution = ({ lat, lon }) => {
 const [currentAirPollution, setCurrentAirPollution] = useState(null);
 
   useEffect(() => {
     if (lat && lon) {
-      axios.get(`http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={AirPollution_KEY}`)
-      .then(response => setCurrentAirPollution(response.data))
+      axios.get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${AirPollution_KEY}`)
+      .then(response => setCurrentAirPollution(response.data.list[0]))
       .catch(error => console.error("Error fetching air data:", error));
     }
   }, [lat, lon]);
 
-  if (!currentAir) {
+  if (!currentAirPollution) {
     return <p>Loading...</p>;
   }
 
-  const { main: { temp, feels_like, humidity, pressure }, weather, wind, sys: { sunrise, sunset } } = currentWeather;
+  console.log("air pol", currentAirPollution);
+  // const { main: { Qualitativen }, sys: { clear, smog } } = currentAirPollution;
 
-  
+  let quality = "good";
+  const aqi = currentAirPollution.main.aqi;
+  if (aqi <= 50){
+    quality = "good";
+  }
+  else if (aqi <= 100){ quality = "Moderate" }
+  else if (aqi <= 150){ quality = "Unhealthy for Sensitive Groups"}
+  else if (aqi <= 200){ quality = "Unhealthy"}
+  else if (aqi <= 300){ quality = "Very Unhealthy" }
+  else if (aqi <= 500){ quality = "Hazardous" }
+
+  // const comp = currentAirPollution.components;
+
+
+  return (
+    <>
+      <div><h1>Quality is</h1> is <solid>{quality}</solid></div>
+
+    </>
+  );
+
+
+}  
 
 export default AirPollution;
 
