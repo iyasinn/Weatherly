@@ -1,18 +1,30 @@
 .news-app{
-    width: 420px;
+    display: flex;
+    width: 100%;
     margin-left: 10px;
-    overflow-y: auto; 
-    height: 1000px;
+    overflow-x: auto;
+    overflow-y: hidden; 
+    height: auto;
+    box-sizing: border-box;
 }
 
 .news-item {
-    width: 400px;
-    padding: 20px;
+    flex: 0 0 auto;
+    width: 500px;
+    padding: 30px;
     border: 1px solid;
     margin-bottom: 20px;
-    border-radius: 25px;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    height: 430px;
+    margin: 20px 10px 20px 10px;
 }
 
 .news-img {
     width: 400px;
 }
+
+.news-item:hover {
+    transform: translateY(-5px);
+  }

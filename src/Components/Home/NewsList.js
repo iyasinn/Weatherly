@@ -21,26 +21,21 @@ const NewsList = ({ cityName }) => {
 		getArticles();
 	}, [cityName]);
 
-	return (
-		<div className="w-fit">
-			<p className="text-3xl mb-3 text-sky-400 font-bold text-center">
-				News for {cityName}
-			</p>
-			<div className="news-app">
-				{articles.map((article, index) => {
-					return (
-						<NewsItem
-							key={index}
-							title={article.title}
-							description={article.description}
-							url={article.url}
-							urlToImage={article.urlToImage}
-						/>
-					);
-				})}
-			</div>
-		</div>
-	);
-};
+    return (
+        <div className="news-app">
+            {articles.map((article, index) =>{
+                return(
+                    <NewsItem
+                        key={index}  
+                        title={article.title}
+                        description={article.description}
+                        url={article.url}
+                        urlToImage={article.urlToImage}
+                    />    
+                )
+            })}
+        </div>
+    )
+}
 
 export default NewsList;
