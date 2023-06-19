@@ -22,6 +22,7 @@ const NewsList = ({ cityName }) => {
 
     return (
         <div className="news-app">
+            <label className='news-title'>News:</label>
             {articles.map((article, index) =>{
                 return(
                     <NewsItem

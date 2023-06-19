@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import { grey } from "@mui/material/colors";
 
 const WEATHER_API_KEY = '50628e2cb3eaad072070ad14c6d05824'
 const Weather = ({ lat, lon, cityName }) => {

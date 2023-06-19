@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Search from "./Search";
 import NewsList from "./NewsList";
 import Weather from "./Weather";
+import Forecast from "./Forecast";
 
 async function fetchGeocode(placeId, apiKey) {
 	const url = `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${apiKey}`;
@@ -75,8 +76,8 @@ const Home = () => {
 			</h1>
 			<Search location={setLocation}></Search>
 			{city.lat && city.lon && city.name && <Weather lat={city.lat} lon={city.lon} cityName = {city.name} />}
+			{city.lat && city.lon && <Forecast lat={city.lat} lon={city.lon} />}
 			{city.name && <NewsList cityName={city.name} />}
-
 		</>
 	);
 };
