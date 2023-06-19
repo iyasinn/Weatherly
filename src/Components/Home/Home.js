@@ -5,6 +5,7 @@ import NewsList from "./NewsList";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
 import "./Home.css";
+import AirPollution from "./AirPollution";
 
 async function fetchGeocode(placeId, apiKey) {
 	const url = `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${apiKey}`;
@@ -77,6 +78,7 @@ const Home = () => {
 		<>			
 			<Search location={setLocation}></Search>
 			{city.lat && city.lon && city.name && <Weather lat={city.lat} lon={city.lon} cityName = {city.name} />}
+			{city && <AirPollution lat = {city.lat} lon={city.lon}/>}
 			{city.lat && city.lon && <Forecast lat={city.lat} lon={city.lon} />}
 			{city.name && <h3 className="news-title">News:</h3> }
 			{city.name && <NewsList cityName={city.name} />}
