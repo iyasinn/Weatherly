@@ -3,3 +3,21 @@
     text-align: center;
     font-size: large;
 }
+
+.realHome {
+    margin: 0;
+    padding: 48px 0;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    /* background-image: linear-gradient(45deg, #5ad0fb, #0080ff); */
+    min-height: 100vh;
+  }
+
+  .morning{
+    background-image: linear-gradient(45deg, #5ad0fb, #0080ff);
+  }
+
+  .night {
+    background-image: linear-gradient(45deg, rgb(36, 41, 69), #080a4f);
+  }

@@ -23,7 +23,7 @@ const Forecast = ({lat, lon}) => {
 
     return (
     <div className="forecast-container">
-        <label className='forecast-title'>Daily Forecast</label>
+        <div className='forecast-title'>Daily Forecast</div>
         {forecastData.map((forecast, index) => {
             const date = new Date(forecast.dt * 1000);
             const day = date.getDay();

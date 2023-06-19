@@ -12,10 +12,11 @@ function App() {
 	};
 
 	return (
-		<>
+		<div className="body2">
+
 			<Navbar></Navbar>
 			{renderPage(page)}
-		</>
+		</div>
 	);
 }
 

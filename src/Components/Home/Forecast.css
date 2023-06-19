@@ -1,7 +1,27 @@
 .forecast-container {
-    display: flex;
+    display: block;
+    margin: 0 auto 0 auto;
     flex-direction: column;
     align-items: center;
+    width: 1100px;
+    /* width: 1500px; */
+    border: solid 3px rgb(242, 244, 246); 
+    color: white;
+    text-shadow: 0px 0px 3px black; 
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .forecast-title{
+    margin-top: 25px;
+    font-size: 45px;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    /* border-bottom: solid 3px white; */
+    /* width: 300px; */
   }
 
   .forecast-day {
@@ -14,6 +34,7 @@
   }
 
   .forecast-day img {
+
     width: 50px;
     height: 50px;
   }

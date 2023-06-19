@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 
 const WEATHER_API_KEY = '50628e2cb3eaad072070ad14c6d05824'
-const Weather = ({ lat, lon, cityName }) => {
+const Weather = ({ lat, lon, cityName, func}) => {
   const [currentWeather, setCurrentWeather] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Weather = ({ lat, lon, cityName }) => {
   }, [lat, lon]);
 
   if (!currentWeather) {
-    return <p>Loading...</p>;
+    return;
   }
 
   const { main: { temp, feels_like, humidity, pressure }, weather, wind, sys: { sunrise, sunset } } = currentWeather;
@@ -25,8 +25,10 @@ const Weather = ({ lat, lon, cityName }) => {
 
   if (currentTime >= sunrise && currentTime < sunset) {
     backgroundStyle = { backgroundColor: 'skyblue' };
+    func("morning");
   } else {
     backgroundStyle = { backgroundColor: 'grey' };
+    func("night");
   }
 
   return (

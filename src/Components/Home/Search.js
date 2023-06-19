@@ -99,10 +99,17 @@ export default function Search(props) {
 		};
 	}, [value, inputValue, fetch]);
 
+	const bounce = "animate-pulse"
+	let bbounce = false;
+	if (value === null){
+		bbounce = true;
+	}
+
+
 	// console.log({ value, inputValue, options });
 
 	return (
-		<div className="flex justify-center mt-5 mb-5">
+		<div className={"flex justify-center mt-5 mb-10 " + (bbounce && bounce)}>
 			<Autocomplete
 				id="google-map-demo"
 				sx={{ width: 300 }}
@@ -126,6 +133,7 @@ export default function Search(props) {
 				renderInput={(params) => (
 					<TextField {...params} label="Add a location" fullWidth />
 				)}
+				className="bg-white rounded-3xl"
 				renderOption={(props, option) => {
 					const matches =
 						option.structured_formatting
@@ -148,9 +156,9 @@ export default function Search(props) {
 								<Grid
 									item
 									sx={{
-										width: "calc(100% - 44px)",
+										width: "calc(100% )",
 										wordWrap: "break-word",
-									}}
+									  }}
 								>
 									{parts.map((part, index) => (
 										<Box
