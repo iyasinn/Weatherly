@@ -25,7 +25,7 @@ const [currentAirPollution, setCurrentAirPollution] = useState(null);
   if (aqi <= 3){
     quality = "good";
   }
-  else if (aqi <= 4){ quality = "Moderate" }
+  else if (aqi <= 3){ quality = "Moderate" }
   else if (aqi <= 6){ quality = "Unhealthy for Sensitive Groups"}
   else if (aqi <= 7){ quality = "Unhealthy"}
   else if (aqi <= 9){ quality = "Very Unhealthy" }
@@ -34,7 +34,7 @@ const [currentAirPollution, setCurrentAirPollution] = useState(null);
   // const comp = currentAirPollution.components;
 
 
-  return (
+  return ( 
     <>
       <div><h1>Quality is</h1> is <solid>{quality}</solid></div>
 
