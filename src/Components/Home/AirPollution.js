@@ -22,14 +22,14 @@ const [currentAirPollution, setCurrentAirPollution] = useState(null);
 
   let quality = "good";
   const aqi = currentAirPollution.main.aqi;
-  if (aqi <= 50){
+  if (aqi <= 3){
     quality = "good";
   }
-  else if (aqi <= 100){ quality = "Moderate" }
-  else if (aqi <= 150){ quality = "Unhealthy for Sensitive Groups"}
-  else if (aqi <= 200){ quality = "Unhealthy"}
-  else if (aqi <= 300){ quality = "Very Unhealthy" }
-  else if (aqi <= 500){ quality = "Hazardous" }
+  else if (aqi <= 4){ quality = "Moderate" }
+  else if (aqi <= 6){ quality = "Unhealthy for Sensitive Groups"}
+  else if (aqi <= 7){ quality = "Unhealthy"}
+  else if (aqi <= 9){ quality = "Very Unhealthy" }
+  else if (aqi <= 10){ quality = "Hazardous" }
 
   // const comp = currentAirPollution.components;
 
