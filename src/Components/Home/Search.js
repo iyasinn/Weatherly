@@ -9,8 +9,6 @@ import parse from "autosuggest-highlight/parse";
 import { debounce } from "@mui/material/utils";
 import { SettingsEthernet } from "@mui/icons-material";
 
-
-
 const GOOGLE_MAPS_API_KEY = "AIzaSyAC0Sehx-7YO-Gx4AzBPdfzsuRwVNmU150";
 
 function loadScript(src, position, id) {
@@ -32,7 +30,7 @@ export default function Search(props) {
 	const [inputValue, setInputValue] = React.useState("");
 	const [options, setOptions] = React.useState([]);
 	const [geocode, setGeocode] = React.useState([]);
-	
+
 	const loaded = React.useRef(false);
 
 	if (typeof window !== "undefined" && !loaded.current) {
@@ -91,25 +89,25 @@ export default function Search(props) {
 
 		if (value) {
 			props.location(value);
-			
 		}
-		  
+
 		return () => {
 			active = false;
 		};
 	}, [value, inputValue, fetch]);
 
-	const bounce = "animate-pulse"
+	const bounce = "animate-pulse";
 	let bbounce = false;
-	if (value === null){
+	if (value === null) {
 		bbounce = true;
 	}
-
 
 	// console.log({ value, inputValue, options });
 
 	return (
-		<div className={"flex justify-center mt-5 mb-10 " + (bbounce && bounce)}>
+		<div
+			className={"flex justify-center mt-5 mb-10 " + (bbounce && bounce)}
+		>
 			<Autocomplete
 				id="google-map-demo"
 				sx={{ width: 300 }}
@@ -133,7 +131,7 @@ export default function Search(props) {
 				renderInput={(params) => (
 					<TextField {...params} label="Add a location" fullWidth />
 				)}
-				className="bg-white rounded-3xl"
+				className="bg-white rounded-xl"
 				renderOption={(props, option) => {
 					const matches =
 						option.structured_formatting
@@ -158,7 +156,7 @@ export default function Search(props) {
 									sx={{
 										width: "calc(100% )",
 										wordWrap: "break-word",
-									  }}
+									}}
 								>
 									{parts.map((part, index) => (
 										<Box
@@ -188,7 +186,6 @@ export default function Search(props) {
 					);
 				}}
 			/>
-				
 		</div>
 	);
 }
