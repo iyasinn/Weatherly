@@ -34,16 +34,6 @@ const Forecast = ({ lat, lon }) => {
 		"Saturday",
 	];
 
-	const backgrounds = {
-		Clouds: "https://i.gifer.com/origin/dd/ddedd3a2f4a3995d8cd1a8ab2033c9ce.gif",
-		Clear: "https://i.gifer.com/origin/45/454ba38b4ce5b3fdc8796ed710769e69.gif",
-		Snow: "https://i.gifer.com/ID2s.gif",
-		Rain: "https://i0.wp.com/i.giphy.com/l3vRbEzrEBQJdpdZu.gif",
-		Drizzle: "https://i.gifer.com/7sd5.gif",
-		Thunderstorm:
-			"https://phoneky.co.uk/thumbs/screensavers/down/new/places/citystorm_JGax8zdT.gif",
-	};
-
 	return (
 		<div className="forecast-container flex">
 			{/* <div className="forecast-title">Daily Forecast</div> */}
@@ -51,12 +41,13 @@ const Forecast = ({ lat, lon }) => {
 				const date = new Date(forecast.dt * 1000);
 				const day = date.getDay();
 				const dayOfWeek = index === 0 ? "Today" : days[day];
+				const weath = forecast.weather[0].main;
 				console.log("Forecast", forecast);
 				return (
-					<div className="forecast-card">
+					<div className={"forecast-card " + weath} key={forecast.dt}>
 						<p>{dayOfWeek}</p>
 						<p>{forecast.main.temp}</p>
-						<p>{forecast.weather[0].main}</p>
+						<p>{weath}</p>
 					</div>
 				);
 			})}
