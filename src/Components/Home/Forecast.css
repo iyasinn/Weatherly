@@ -1,40 +1,52 @@
 .forecast-container {
-    display: block;
-    margin: 0 auto 0 auto;
-    flex-direction: column;
-    align-items: center;
-    width: 1100px;
-    /* width: 1500px; */
-    border: solid 3px rgb(242, 244, 246); 
-    color: white;
-    text-shadow: 0px 0px 3px black; 
-    border-radius: 30px;
-    padding: 20px;
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-  }
+	display: flex;
+	margin: 0 auto 0 auto;
+	/* width: 1100px; */
+	/* width: 1500px; */
+	border: solid 3px rgb(242, 244, 246);
+	color: white;
+	text-shadow: 0px 0px 3px black;
+	border-radius: 30px;
+	padding: 20px;
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 30px;
+	justify-content: center;
+}
 
-  .forecast-title{
-    margin-top: 25px;
-    font-size: 45px;
-    margin-bottom: 25px;
-    padding-bottom: 5px;
-    /* border-bottom: solid 3px white; */
-    /* width: 300px; */
-  }
+.forecast-card {
+	width: 300px;
+	height: 250px;
+	/* background-color: black; */
+	/* background-image: url("https://i.gifer.com/origin/dd/ddedd3a2f4a3995d8cd1a8ab2033c9ce.gif"); */
+	background-size: cover;
+	margin-right: 25px;
+	border-radius: 30px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	padding-top: 25px;
+	text-shadow: 0 0 15px black;
+}
 
-  .forecast-day {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
+.forecast-title {
+	margin-top: 25px;
+	font-size: 45px;
+	margin-bottom: 25px;
+	padding-bottom: 5px;
+	/* border-bottom: solid 3px white; */
+	/* width: 300px; */
+}
 
-  .forecast-day img {
+.forecast-day {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
 
-    width: 50px;
-    height: 50px;
-  }
+.forecast-day img {
+	width: 50px;
+	height: 50px;
+}
