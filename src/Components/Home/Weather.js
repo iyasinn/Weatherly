@@ -3,8 +3,8 @@ import axios from "axios";
 import "./Weather.css";
 
 const WEATHER_API_KEY = '50628e2cb3eaad072070ad14c6d05824'
-const Weather = ({ lat, lon, cityName, func}) => {
-  const [currentWeather, setCurrentWeather] = useState(null);
+const Weather = (props) => {
+  const {lat, lon, cityName, func, currentWeather, setCurrentWeather} = props;
 
   useEffect(() => {
     if (lat && lon) {

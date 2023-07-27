@@ -6,6 +6,8 @@ import Weather from "./Weather";
 import Forecast from "./Forecast";
 import "./Home.css";
 import AirPollution from "./AirPollution";
+import Summary from "./Summary";
+
 
 async function fetchGeocode(placeId, apiKey) {
   const url = `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${apiKey}`;
@@ -30,6 +32,8 @@ const Home = () => {
   const [city, setCity] = React.useState({});
   const [foundCity, setFoundCity] = React.useState(false);
   const [day, setDay] = React.useState("morning");
+  const [currentAirPollution, setCurrentAirPollution] = React.useState(null);
+  const [currentWeather, setCurrentWeather] = React.useState(null);
 
   useEffect(() => {
     const apiKey = "AIzaSyAC0Sehx-7YO-Gx4AzBPdfzsuRwVNmU150";
@@ -79,13 +83,14 @@ const Home = () => {
         <div></div>
         <div className="">
           {city && (
-            <Weather lat={city.lat} lon={city.lon} cityName={city.name} func={setDay} />
+            <Weather lat={city.lat} lon={city.lon} cityName={city.name} func={setDay} currentWeather = {currentWeather} setCurrentWeather={setCurrentWeather}/>
           )}
         </div>
-        <div>{city && <AirPollution lat={city.lat} lon={city.lon} />}</div>
+        <div>{city && <AirPollution lat={city.lat} lon={city.lon} currentAirPollution = {currentAirPollution} setCurrentAirPollution={setCurrentAirPollution}/>}</div>
         <div></div>
         <div></div>
       </div>
+      {currentWeather && currentAirPollution && <Summary cityName={city.name} weatherData={currentWeather} airPollutionData = {currentAirPollution} />}
       {city.lat && city.lon && <Forecast lat={city.lat} lon={city.lon} />}
       {/* {city.name && <h3 className="news-title">News:</h3>} */}
       {city.name && <NewsList cityName={city.name} />}

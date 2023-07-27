@@ -3,8 +3,8 @@ import axios from "axios";
 import "./AirPollution.css"
 
 const AirPollution_KEY = '50628e2cb3eaad072070ad14c6d05824'
-const AirPollution = ({ lat, lon }) => {
-const [currentAirPollution, setCurrentAirPollution] = useState(null);
+const AirPollution = (props) => {
+const {lat,lon, currentAirPollution, setCurrentAirPollution} = props
 
   useEffect(() => {
     if (lat && lon) {
