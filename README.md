@@ -9,14 +9,19 @@ An in-depth paragraph about your project and overview of use.
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* node
+* react
+* webpack
+* babel
+* eslint
 
 ### Installing
 
 In the project directory, you can run:
 
-### `npm i` 
+```
+npm i
+```
 Install all the dependencies
 
 ### Executing program
@@ -25,18 +30,14 @@ Install all the dependencies
 * Step-by-step bullets
 ```
 npm start
+```
 Run the application
 
+```
 npm test
-Run tests
 ```
+Run tests 
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
 ## Authors
 
